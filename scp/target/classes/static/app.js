@@ -77,7 +77,9 @@ appSCP.controller("indexController", function($scope, $http) {
 	
 	
 	$scope.produtos = [];
-	$scope.produto = {};
+	$scope.produto = {
+		
+	};
 
 	$scope.carregarProdutos = function() {
 		$http({
@@ -93,6 +95,10 @@ appSCP.controller("indexController", function($scope, $http) {
 	}
 
 	$scope.salvarProduto = function(produto) {
+		/*console.log(produto.fornecedor.$index);
+		$index = $scope.produto.fornecedor.id;
+		console.log($scope.produto.fornecedor[produto.fornecedor[$index]]);*/
+		
 		$http({
 			method: 'POST',
 			url: '/produto',

@@ -2,16 +2,16 @@
 <html ng-app="appSCP">
 <head>
 <meta charset="UTF-8"/>
-<title>Insert title here</title>
+<title>SCP - Sistema de Cadastro de Produtos</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"></link>
 	<script src="./app.js"></script>
 	<script src="./control/produto.js"></script>
 
 </head>
-	<body ng-controller="indexController">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-8 col-md-4">
+	<body style="background-color:#fefeff;" ng-controller="indexController">
+	<div class="col-sm-2 col-md-4"></div>
+	<div style="background-color:#fff;" class="col-sm-8 col-md-4">
 		<svg xmlns="http://www.w3.org/2000/svg" id="a57f6051-90d9-4b0f-831b-7c7398482616" data-name="Layer 1" width="300" height="200" viewBox="0 0 878.63037 483">	
 			<path d="M294.7164,621.20348c-19.51084,14.54436-25.04043,40.13465-25.04043,40.13465s26.10369,2.00928,45.61453-12.53511,25.04043-40.13465,25.04043-40.13465S314.22725,606.65916,294.7164,621.20348Z" 
 			transform="translate(-160.68481 -208.5)" fill="#f1f1f1"/><path d="M302.84375,628.03207c-9.37708,22.45621-32.86178,34.02822-32.86178,34.02822s-8.28141-24.83665,1.09568-47.29286,32.86172-34.02822,32.86172-34.02822S312.22084,605.57587,302.84375,628.03207Z" 
@@ -31,14 +31,16 @@
 		</svg>
 		<h2>Fornecedor</h2>
 		<br>
-		Fornecedor: <input class="form-control" type="text" ng-model="fornecedor.nome" ></input><br>
+		Nome: <input class="form-control" type="text" ng-model="fornecedor.nome" ></input><br>
 		<input class="btn btn-primary" type="submit" value="Salvar" ng-click="salvarFornecedor(fornecedor)"/>
 		<input class="btn " type="submit" value="Cancelar" ng-click="cancelarEditarFornecedor()"/>
 		
 		<br>
 		
 		<ul ng-repeat="f in fornecedores">
-			<li>{{f.nome}}</li><br>
+			<li>{{f.nome}}
+				<ul ng-repeat="fp in fornecedores.produto">{{f.produto.nome}}</ul>
+			</li><br>
 			<input class="btn btn-danger" type="submit" value="Excluir" ng-click="excluirFornecedor($index)"/>	
 			<input class="btn " type="submit" value="Editar" ng-click="editarFornecedor(f)"/>	
 		</ul>
@@ -47,10 +49,10 @@
 		<br>
 		<h2>Produto</h2>
 		<br>
-		Produto: <input  class="form-control"type="text" ng-model="produto.nome" ></input><br>
-		Fornecedor: <select class="form-control" ng-model="produto.fornecedor.nome" ng-options="fornecedor.nome for fornecedor in fornecedores track by fornecedor.id"> </select>
-		<br>
-		<input class="btn btn-primary" type="submit" value="Salvar" ng-click="salvarProduto(fornecedor)"/>
+		Nome: <input  class="form-control"type="text" ng-model="produto.nome" ></input><br>
+		Fornecedor: <select class="form-control" ng-model="produto.fornecedor.id" ng-options="fornecedor.id as fornecedor.nome for fornecedor in fornecedores track by fornecedor.id"> </select>
+		<br> 
+		<input class="btn btn-primary" type="submit" value="Salvar" ng-click="salvarProduto(produto,$index)"/>
 		<input class="btn " type="submit" value="Cancelar" ng-click="cancelarEditarProduto()"/>
 		
 		
@@ -64,7 +66,7 @@
 		</ul>
 	
 	</div>
-	<div class="col-sm-2"></div>
+	<div class="col-sm-2 col-md-4"></div>
 </body>
 </html>
 
