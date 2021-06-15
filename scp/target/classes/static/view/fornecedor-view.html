@@ -1,0 +1,28 @@
+<div ng-controller="fornecedorController">
+<h2>Fornecedor</h2>
+		<br>
+		Nome: <input class="form-control" type="text" ng-model="fornecedor.nome" ></input><br>
+		<input class="btn btn-primary" type="submit" value="Salvar" ng-click="salvarFornecedor(fornecedor)"/>
+		<input class="btn " type="submit" value="Cancelar" ng-click="cancelarEditarFornecedor()"/>
+		
+		<hr>
+		
+		<table class="table table-striped">
+			<tr>
+				<th>Nome</th>
+				<th>Produtos</th>
+				<th>Editar</th>				
+				<th>Excluir</th>
+			</tr>
+			<tr ng-repeat="f in fornecedores">
+				<td>{{f.nome}}</td>
+				<td>
+					<ul ng-repeat="p in produtos">
+						<li ng-show="p.fornecedor.id === f.id">{{p.nome}}</li>						
+					</ul>
+				</td>
+				<td><input class="btn" type="submit" value="&#9999;" ng-click="excluirFornecedor($index)"/></td>
+				<td><input class="btn btn-danger" type="submit" value="x" ng-click="editarFornecedor(f)"/></td>
+			</tr>
+		<table>
+</div>
