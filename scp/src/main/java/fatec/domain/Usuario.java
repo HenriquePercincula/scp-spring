@@ -3,17 +3,14 @@ package fatec.domain;
 
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tb_usuario")
-public class Usuario {
+public class Usuario extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+	private static final long serialVersionUID = 1L;
+   
     private String nome;
     private String senha;
     
@@ -33,12 +30,5 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}	
-    
+	
 }

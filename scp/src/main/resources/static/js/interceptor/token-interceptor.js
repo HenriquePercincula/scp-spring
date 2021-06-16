@@ -14,9 +14,7 @@ appSCP.factory("tokenInterceptor", function($q, $location){
 	    	if(rejection.status==500){
 	    		$location.path("/login");
 				alert("Realize o login para continuar.")
-	    	}else{
-				$location.path("/");
-			}
+	    	}
 	    	return response;
 	    }
 	
