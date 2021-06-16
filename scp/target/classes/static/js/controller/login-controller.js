@@ -9,6 +9,7 @@ appSCP.controller("loginController", function ($scope, $http){
 		$http.post("/autenticar", $scope.usuario).then(function(response){
 			console.log("Sucesso " + response);
 			$scope.token = response.data.token;
+			console.log("Token:",$scope.token);		
 			localStorage.setItem("userToken", response.data.token);
 			
 		} , function(response){

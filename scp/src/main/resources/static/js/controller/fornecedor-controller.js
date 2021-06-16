@@ -43,7 +43,7 @@ appSCP.controller("fornecedorController",function($scope,$http){
 		}).then(function successCallback(response) {			
 			console.log("Dados salvos com sucesso.");
 			$scope.carregarFornecedores();
-			$scope.cancelarEditarfornecedor();
+			$scope.cancelarEditarFornecedor();
 		}, function errorCallback(response) {
 			console.log("ERRO");
 			console.log(response.status);
