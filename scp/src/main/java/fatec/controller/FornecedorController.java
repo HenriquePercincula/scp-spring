@@ -22,18 +22,18 @@ import org.springframework.web.bind.annotation.RestController;
 import fatec.domain.Fornecedor;
 import fatec.service.FornecedorService;
 @RestController
-@RequestMapping("/fornecedor")
+@RequestMapping("/admin")
 public class FornecedorController implements
  ControllerInterface<Fornecedor> {
  @Autowired
  private FornecedorService service;
  
- @GetMapping
+ @GetMapping(value = "/fornecedor")
  public ResponseEntity<List<Fornecedor>> getAll() {
 	 return ResponseEntity.ok(service.findAll());
 	 }
 
- @GetMapping(value = "/{id}")
+ @GetMapping(value = "/fornecedor/{id}")
  public ResponseEntity<?> get(@PathVariable("id") Long id){
  Fornecedor _obj = service.findById(id);
  if (_obj != null) {
@@ -42,14 +42,14 @@ public class FornecedorController implements
  return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
  }
 
- @PostMapping
+ @PostMapping(value = "/fornecedor")
  public ResponseEntity<Fornecedor> post(@RequestBody Fornecedor obj)
  {
  service.create(obj);
  return ResponseEntity.ok(obj);
  }
  
- @PutMapping
+ @PutMapping(value = "/fornecedor")
  public ResponseEntity<?> put(@RequestBody Fornecedor _obj)
  {
  if (service.update(_obj)) {
@@ -58,7 +58,7 @@ public class FornecedorController implements
  return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
  }
 
- @DeleteMapping(value = "/{id}")
+ @DeleteMapping(value = "/fornecedor/{id}")
  public ResponseEntity<?> delete(@PathVariable("id") Long id) {
  if (service.delete(id)) {
  return ResponseEntity.ok().build();

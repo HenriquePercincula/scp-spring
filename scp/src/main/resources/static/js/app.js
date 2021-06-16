@@ -13,7 +13,14 @@ appSCP.config(["$routeProvider", function($routeProvider) {
 		templateUrl : 'view/fornecedor-view.html',
 		controller : 'fornecedorController'	
 	})
+	.when('/login', {
+		templateUrl : 'view/login.html',
+		controller : 'loginController'	
+	})
 	.otherwise('/');
 
 }]);
   
+appSCP.config (function($httpProvider){
+	$httpProvider.interceptors.push("tokenInterceptor");
+});

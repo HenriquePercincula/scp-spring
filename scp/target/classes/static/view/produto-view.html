@@ -5,7 +5,7 @@
 		Fornecedor: <select class="form-control" ng-model="produto.fornecedor.id" ng-options="fornecedor.id as fornecedor.nome for fornecedor in fornecedores track by fornecedor.id"> </select>
 		<br> 
 		<input class="btn btn-primary" type="submit" value="Salvar" ng-click="salvarProduto(produto,$index)"/>
-		<input class="btn " type="submit" value="Cancelar" ng-click="cancelarEditarProduto()"/>
+		<input class="btn btn-default" type="submit" value="Cancelar" ng-click="cancelarEditarProduto()"/>
 		
 		<hr>
 		
@@ -19,7 +19,7 @@
 			<tr ng-repeat="p in produtos">
 				<td>{{p.nome}}</td>
 				<td>{{p.fornecedor.nome}}</td>
-				<td><input class="btn 			" type="submit" value="&#9999;" ng-click="editarProduto(p)"/></td>
+				<td><input class="btn btn-default" type="submit" value="&#9999;" ng-click="editarProduto(p)"/></td>
 				<td><input class="btn btn-danger" type="submit" value="x" ng-click="excluirProduto($index)"/></td>
 			</tr>
 		<table>

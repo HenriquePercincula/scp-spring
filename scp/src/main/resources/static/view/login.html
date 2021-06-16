@@ -1,0 +1,16 @@
+<div>
+
+	<form ng-submit="autenticar()" >
+		
+		<label>Usuario </label>
+		<input class="form-control" type="text" ng-model="usuario.nome" >
+		
+		<label>Senha </label>
+		<input class="form-control" type="password" ng-model="usuario.senha" >
+		<br>
+		<input class="btn btn-primary" type="submit" value="Autenticar">
+		
+		Token: {{token}}
+	</form>
+
+</div>

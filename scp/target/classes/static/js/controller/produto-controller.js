@@ -11,7 +11,7 @@ appSCP.controller("produtoController",function($scope,$http){
 	$scope.carregarFornecedores = function() {
 		$http({
 			method: 'GET',
-			url: '/fornecedor'
+			url: '/admin/fornecedor'
 		}).then(function successCallback(response) {
 			$scope.fornecedores = response.data;
 			console.log("Listando todos os fornecedores: ", $scope.fornecedores);
