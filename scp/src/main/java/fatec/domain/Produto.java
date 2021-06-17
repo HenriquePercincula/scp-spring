@@ -18,7 +18,6 @@ public class Produto extends AbstractEntity{
     private String nome;
     
     @ManyToOne
-    //@JoinColumn(name="fk_fornecedor")
     private Fornecedor fornecedor;
 
     public Produto() {

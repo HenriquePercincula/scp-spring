@@ -70,8 +70,7 @@ appSCP.controller("fornecedorController",function($scope,$http){
 			method: 'PUT',
 			url: '/admin/fornecedor',
 			data: f
-		}).then(function successCallback(response) {			
-			//console.log("Dados salvos com sucesso.");				
+		}).then(function successCallback(response) {						
 			$scope.carregarFornecedores();		
 		}, function errorCallback(response) {
 			console.log("ERRO");

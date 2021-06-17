@@ -29,7 +29,6 @@ public class LoginController {
 			throw new ServletException("Nome e senha obrigatório.");
 		}
 		
-		//Consulta no banco
 		Usuario usuAutenticado = usuarioService.buscarPorNome(usuario.getNome());
 		
 		if (usuAutenticado==null){

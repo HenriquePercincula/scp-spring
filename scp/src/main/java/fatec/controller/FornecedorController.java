@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.controller;
 
 import java.util.List;
@@ -24,45 +19,45 @@ import fatec.service.FornecedorService;
 @RestController
 @RequestMapping("/admin")
 public class FornecedorController implements
- ControllerInterface<Fornecedor> {
- @Autowired
- private FornecedorService service;
- 
- @GetMapping(value = "/fornecedor")
- public ResponseEntity<List<Fornecedor>> getAll() {
-	 return ResponseEntity.ok(service.findAll());
-	 }
+ControllerInterface<Fornecedor> {
+	@Autowired
+	private FornecedorService service;
 
- @GetMapping(value = "/fornecedor/{id}")
- public ResponseEntity<?> get(@PathVariable("id") Long id){
- Fornecedor _obj = service.findById(id);
- if (_obj != null) {
- return ResponseEntity.ok(_obj);
- }
- return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
- }
+	@GetMapping(value = "/fornecedor")
+	public ResponseEntity<List<Fornecedor>> getAll() {
+		return ResponseEntity.ok(service.findAll());
+	}
 
- @PostMapping(value = "/fornecedor")
- public ResponseEntity<Fornecedor> post(@RequestBody Fornecedor obj)
- {
- service.create(obj);
- return ResponseEntity.ok(obj);
- }
- 
- @PutMapping(value = "/fornecedor")
- public ResponseEntity<?> put(@RequestBody Fornecedor _obj)
- {
- if (service.update(_obj)) {
- return ResponseEntity.ok(_obj);
- }
- return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
- }
+	@GetMapping(value = "/fornecedor/{id}")
+	public ResponseEntity<?> get(@PathVariable("id") Long id){
+		Fornecedor _obj = service.findById(id);
+		if (_obj != null) {
+			return ResponseEntity.ok(_obj);
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
 
- @DeleteMapping(value = "/fornecedor/{id}")
- public ResponseEntity<?> delete(@PathVariable("id") Long id) {
- if (service.delete(id)) {
- return ResponseEntity.ok().build();
- }
- return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
- }
+	@PostMapping(value = "/fornecedor")
+	public ResponseEntity<Fornecedor> post(@RequestBody Fornecedor obj)
+	{
+		service.create(obj);
+		return ResponseEntity.ok(obj);
+	}
+
+	@PutMapping(value = "/fornecedor")
+	public ResponseEntity<?> put(@RequestBody Fornecedor _obj)
+	{
+		if (service.update(_obj)) {
+			return ResponseEntity.ok(_obj);
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
+
+	@DeleteMapping(value = "/fornecedor/{id}")
+	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+		if (service.delete(id)) {
+			return ResponseEntity.ok().build();
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
 }

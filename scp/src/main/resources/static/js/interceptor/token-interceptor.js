@@ -1,4 +1,4 @@
-appSCP.factory("tokenInterceptor", function($q, $location){
+appSCP.factory("tokenInterceptor", function($location){
 	
 	return {
 		
